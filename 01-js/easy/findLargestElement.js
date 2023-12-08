@@ -6,7 +6,12 @@
 */
 
 function findLargestElement(numbers) {
+    let largestNumber;
     
+    numbers.map((number) => {
+        if(parseFloat(number) > parseFloat(largestNumber) || largestNumber == undefined | NaN) largestNumber = number;
+    })
+    return largestNumber;
 }
 
 module.exports = findLargestElement;
