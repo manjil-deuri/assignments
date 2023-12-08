@@ -4,7 +4,25 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let reversedStr="";
+  let j = str.length-1;
+  for (let i=str.length-1; i>=0; i--) {   
+    if(isSpecialCharacter(str.charAt((str.length-1) - i))) {
+      reversedStr += str.charAt((str.length-1) - i)
+    }
+    else {
+        while(isSpecialCharacter(str.charAt(j))) {
+          j--;
+        }
+        reversedStr += str.charAt(j);
+        j--;
+      }
+  }
+  return reversedStr.toLowerCase() == str.toLowerCase();
+}
+
+function isSpecialCharacter(str) {
+  return str.match(/[^a-zA-Z0-9]/gi) 
 }
 
 module.exports = isPalindrome;
